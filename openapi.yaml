@@ -1,0 +1,36 @@
+openapi: 3.0.0
+info:
+  title: D&D 5e API Wrapper
+  description: API that provides data on spells, monsters, items, classes, and more from the D&D 5e SRD.
+  version: 1.0.0
+servers:
+  - url: https://dnd5e-api.onrender.com
+paths:
+  /get_dnd_data:
+    get:
+      summary: Fetch D&D 5e game data
+      description: Retrieve details about spells, monsters, equipment, classes, and more.
+      parameters:
+        - name: category
+          in: query
+          required: true
+          schema:
+            type: string
+          description: The category of data to fetch (e.g., spells, monsters, items, classes).
+        - name: item
+          in: query
+          required: false
+          schema:
+            type: string
+          description: The specific item to fetch within the category (e.g., "fireball" for spells).
+      responses:
+        "200":
+          description: Successfully retrieved data
+          content:
+            application/json:
+              schema:
+                type: object
+        "400":
+          description: Invalid request, missing required parameters
+        "500":
+          description: Internal server error
