@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.1.0
 info:
   title: D&D 5e API Wrapper
   description: API that provides data on spells, monsters, items, classes, and more from the D&D 5e SRD.
@@ -8,6 +8,7 @@ servers:
 paths:
   /get_dnd_data:
     get:
+      operationId: getDndData  # <-- This was missing
       summary: Fetch D&D 5e game data
       description: Retrieve details about spells, monsters, equipment, classes, and more.
       parameters:
