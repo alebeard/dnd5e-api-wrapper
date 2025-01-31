@@ -31,6 +31,19 @@ paths:
             application/json:
               schema:
                 type: object
+                properties:
+                  name:
+                    type: string
+                    description: The name of the entity (spell, monster, item, etc.).
+                  description:
+                    type: string
+                    description: A brief description of the entity.
+                  index:
+                    type: string
+                    description: API index reference for this entity.
+                  url:
+                    type: string
+                    description: The API URL to get more details.
         "400":
           description: Invalid request, missing required parameters
         "500":
