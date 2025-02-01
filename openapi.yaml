@@ -8,7 +8,7 @@ servers:
 paths:
   /get_dnd_data:
     get:
-      operationId: getDndData  # <-- This was missing
+      operationId: getDndData
       summary: Fetch D&D 5e game data
       description: Retrieve details about spells, monsters, equipment, classes, and more.
       parameters:
@@ -46,5 +46,21 @@ paths:
                     description: The API URL to get more details.
         "400":
           description: Invalid request, missing required parameters
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message explaining the issue.
         "500":
           description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message for server issues.
